@@ -6,8 +6,12 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 //reducers here
-const count = (state = 0, action) => {
+const feedbackList = (state = [], action) => {
     console.log(`Hey!!! I'm a reducer y'all!!!`);
+    if(action.type === 'SET_FEEDBACK_LIST'){
+        console.log('feedback list has received payload:', action.payload)
+        return action.payload
+    }
 
     return state;
 };
