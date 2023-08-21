@@ -11,9 +11,11 @@ import { CommentsToBeMade } from '../Comments/Comments';
 import { ReviewSubmission } from '../Review/Review';
 import { Admin } from '../Admin/Admin';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
 
+  const history = useHistory()
   const reduxStore = useSelector(store => store)
   const count = useSelector(store => store.count)
 
@@ -26,35 +28,31 @@ function App() {
 
       <Router>
         <div>
-        <Route path="/">
+        <Route exact path="/">
             <p>Start Daily Reflection/Feedback</p>
             <Link to="/feeling">
             <button>Continue</button>
             </Link>
           </Route>
 
-          <Route path="/feeling">
+          <Route exact path="/feeling">
             <FeelingHow/>
           </Route>
 
-          <Route path="/understanding">
+          <Route exact path="/understanding">
             <UnderstandingHow />
           </Route>
 
-          <Route path="/support">
+          <Route exact path="/support">
             <SupportHow />
           </Route>
 
-          <Route path="/comments">
+          <Route exact path="/comments">
             <CommentsToBeMade />
           </Route>
 
-          <Route path="/Review">
+          <Route exact path="/Review">
             <ReviewSubmission />
-          </Route>
-
-          <Route path="/admin">
-            <Admin />
           </Route>
           
         </div>
