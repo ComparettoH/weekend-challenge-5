@@ -1,22 +1,30 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export function FeelingHow() {
 
-    const [feelingRate, setfeelingRate] = useState (null)
+    const [feelingRate, setfeelingRate] = useState ("")
     const history = useHistory()
 
-    const handleClick = () => {
-        setfeelingRate({feelingRate})
-        if (feelingRate > 0) {
-            console.log('success!')
+    const enterRating = (event) => {setfeelingRate(event.target.value)}
+
+    const handleClick = (event) => {
+        event.preventDefault()
+        if (feelingRate === "") {
+            alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.go('/feeling'))
+        }
+        if(feelingRate > '5'){
+            alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.go('/feeling'))
+        }
+        if (feelingRate < '1'){
+            alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.go('/feeling'))
         }
         else {
-            alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.back())
+            console.log('finally success in feeling!!')
+            history.push('/understanding')
         }
     }
-
+ 
 
     return (
         <div>
@@ -24,12 +32,10 @@ export function FeelingHow() {
             <form>
                 <label for="feeling">Feelings based on a scale of 1-5 <br></br>(1 being worst and 5 being best):</label>
                 <br></br>
-                <input type="number" value={feelingRate} min="1" max="5"/>
-                    <Link to="/understanding">
+                <input type="number" value={feelingRate} onChange={enterRating}/>
                         <button onClick={handleClick}>
                             Next
                         </button>
-                    </Link>
                     </form>
                     </div>
                 )
