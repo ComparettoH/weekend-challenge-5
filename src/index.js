@@ -18,7 +18,9 @@ const feedbackList = (state = [], action) => {
 
 //store
 const storeInstance = createStore(
-    count
+    combineReducers({
+        feedbackList,
+    })
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
