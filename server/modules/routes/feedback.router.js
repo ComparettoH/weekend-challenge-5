@@ -13,4 +13,22 @@ router.get('/', (req, res) => {
     });
 })
 
+router.post('/', (req, res) => {
+    const newFeedback = req.body;
+    const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+    VALUES ($1, $2, $3, $4);`
+    const queryValues = [
+        newFeedback.feeling,
+        newFeedback.understanding,
+        newFeedback.support,
+        newFeedback.comments,
+    ];
+    pool.query(queryText, queryValues)
+    .then( () => { res.sendStatus(201); })
+    .catch( (error) => {
+        console.log('Error completing INSERT feedback query', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;
