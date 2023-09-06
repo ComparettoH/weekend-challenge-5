@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
@@ -7,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { FeelingHow } from '../Feeling/Feeling';
 import { UnderstandingHow } from '../Understanding/Understanding';
 import { SupportHow } from '../Support/Support';
-import { CommentsToBeMade } from '../Comments/Comments';
+import { CommentToBeMade } from '../Comment/Comment';
 import { ReviewSubmission } from '../Review/Review';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
@@ -16,7 +15,7 @@ function App() {
 
   const history = useHistory()
   const reduxStore = useSelector(store => store)
-  const count = useSelector(store => store.count)
+  
 
   return (
     <div className='App'>
@@ -47,7 +46,7 @@ function App() {
           </Route>
 
           <Route exact path="/comments">
-            <CommentsToBeMade />
+            <CommentToBeMade />
           </Route>
 
           <Route exact path="/Review">
