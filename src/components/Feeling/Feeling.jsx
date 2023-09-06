@@ -22,10 +22,10 @@ export function FeelingHow() {
         if (feelingRate === '') {
             alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.go('/feeling'))
         }
-        if(feelingRate > '5'){
+        if(feelingRate > 5){
             alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.go('/feeling'))
         }
-        if (feelingRate < '1'){
+        if (feelingRate < 1){
             alert("Next steps cannot be taken until a number of 1 - 5 has been selected for submission", window.history.go('/feeling'))
         }
         else {
