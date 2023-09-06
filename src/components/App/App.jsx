@@ -45,11 +45,11 @@ function App() {
             <SupportHow />
           </Route>
 
-          <Route exact path="/comments">
+          <Route exact path="/comment">
             <CommentToBeMade />
           </Route>
 
-          <Route exact path="/Review">
+          <Route exact path="/review">
             <ReviewSubmission />
           </Route>
           

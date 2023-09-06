@@ -13,7 +13,7 @@ const feedbackList = (state = [], action) => {
         case 'SET_FEEDBACK':
             return action.payload;
         case 'ADD_FEEDBACK':
-            return [...state, action.payload];
+            
         default:
         return state;
     }

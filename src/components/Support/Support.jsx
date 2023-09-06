@@ -31,7 +31,7 @@ export function SupportHow() {
             dispatch({
                 type: 'SET_SUPPORT'
             })
-            history.push('/comments')
+            history.push('/comment')
         }
     }
  
