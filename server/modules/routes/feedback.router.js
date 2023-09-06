@@ -14,9 +14,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    //object data packaged and sent from front end
     const newFeedback = req.body;
+    //sql that adds feedback data to our database
     const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`
+    //deconstructs newFeedback object to match/align key values to sql columns
     const queryValues = [
         newFeedback.feeling,
         newFeedback.understanding,

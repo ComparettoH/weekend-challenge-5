@@ -9,7 +9,6 @@ import { UnderstandingHow } from '../Understanding/Understanding';
 import { SupportHow } from '../Support/Support';
 import { CommentsToBeMade } from '../Comments/Comments';
 import { ReviewSubmission } from '../Review/Review';
-import { Admin } from '../Admin/Admin';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 

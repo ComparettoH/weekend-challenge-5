@@ -6,20 +6,47 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 //reducers here
+//this reducer pulls ALL feedback from database (needed for admin functionality)
 const feedbackList = (state = [], action) => {
     console.log(`Hey!!! I'm a reducer y'all!!!`);
-    if(action.type === 'SET_FEEDBACK_LIST'){
-        console.log('feedback list has received payload:', action.payload)
-        return action.payload
+    switch(action.type){
+        case 'SET_FEEDBACK':
+            return action.payload;
+        case 'ADD_FEEDBACK':
+            return [...state, action.payload];
+        default:
+        return state;
     }
-
-    return state;
 };
+
+// newfeedback reducer that tracks all stages of feedback
+const newFeedback = (state = [], action) =>{
+    console.log(`newFeedback testing!`)
+    if (action.type === 'SET_FEELINGS'){
+        //adding feelings rate
+        return [...state, action.payload]
+    }
+    if (action.type === 'SET_UNDERSTANDING'){
+        //adding understanding rate
+        return [...state, action.payload]
+    }
+    if (action.type === 'SET_SUPPORT'){
+        //adding support rate
+        return [...state, action.payload]
+    }
+    if (action.type === 'SET_COMMENT'){
+        //adding comment
+        return [...state, action.payload]
+    }
+    return state;
+}
+
 
 //store
 const storeInstance = createStore(
     combineReducers({
         feedbackList,
+        newFeedback,
     })
 );
 
